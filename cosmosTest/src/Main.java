@@ -1,143 +1,88 @@
 import com.google.gson.Gson;
 import com.microsoft.azure.documentdb.*;
 
-import java.io.IOException;
-import java.util.List;
+import java.util.UUID;
 
 public class Main {
 
-    // Replace with your DocumentDB end point and master key.
-    private static final String END_POINT = "nkasenides.documents.azure.com";
-    private static final String MASTER_KEY = "aJxI2LqWOAWHME7KEpuEUjrZnHiPotZpICUBrJWKERay0EK5fqomVQFJ7huMY9Gj9h6v7jVdsRE1O8lwvhIvPA==";
-
-    // Define an id for your database and collection
-    private static final String DATABASE_ID = "minesweeperdb";
-    private static final String COLLECTION_ID = "minesweepercollection";
-
-    // We'll use Gson for POJO <=> JSON serialization for this sample.
-    // Codehaus' Jackson is another great POJO <=> JSON serializer.
-    private static Gson gson = new Gson();
 
 
-    public static void main(String[] args) throws DocumentClientException,
-            IOException {
-        // Instantiate a DocumentClient w/ your DocumentDB Endpoint and AuthKey.
-        DocumentClient documentClient = new DocumentClient(END_POINT,
-                MASTER_KEY, ConnectionPolicy.GetDefault(),
-                ConsistencyLevel.Session);
+    public static void main(String[] args) {
 
-        // Start from a clean state (delete database in case it already exists).
+        //Connect to CosmosDB:
+        DocumentClient client = new DocumentClient(
+                "https://minesweeper.documents.azure.com:443/",
+                "zosyn2c8p8QVPsrpRce9xsoNbAmjBD4fh3fqSexCn1Yg8HXrnaImrOJLozaSUqqCaP9t3WbxcVDMM3RuJD7qHA==",
+                new ConnectionPolicy(),
+                ConsistencyLevel.Session
+        );
+
+        final String DATABASE_NAME = "MinesweeperDB";
+        final String DATABASE_ID = "iBgJAA==";
+        final String COLLECTION_NAME = "MinesweeperCollection";
+        final String COLLECTION_ID = "iBgJAI1++j0=";
+
+//        //Create a database:
+//        Database database = new Database();
+//        database.setId(DATABASE_NAME);
+//
+//        try {
+//            client.createDatabase(database, null);
+//        } catch (DocumentClientException e) {
+//            e.printStackTrace();
+//        }
+//
+//        //Create a document collection:
+//        DocumentCollection collectionInfo = new DocumentCollection();
+//        collectionInfo.setId(COLLECTION_NAME);
+//        RequestOptions requestOptions = new RequestOptions();
+//        requestOptions.setOfferThroughput(400);
+//        try {
+//            client.createCollection("/dbs/" + DATABASE_NAME, collectionInfo, requestOptions);
+//        } catch (DocumentClientException e) {
+//            e.printStackTrace();
+//        }
+
+
+        //Create documents:
+
+//        Person person = new Person(UUID.randomUUID().toString(), "Nicos", "Kasenides", 26);
+//        try {
+//            client.createDocument("/dbs/" + DATABASE_NAME + "/colls/" + COLLECTION_NAME, person, new RequestOptions(), true);
+//        } catch (DocumentClientException e) {
+//            e.printStackTrace();
+//        }
+
+        //Create document using GSON:
+        Person person = new Person(UUID.randomUUID().toString(),"John", "Smith", 50);
+//        System.out.println(person.getResourceId());
+        final String personJSON = new Gson().toJson(person);
+        Document personDocument = new Document(personJSON);
         try {
-            documentClient.deleteDatabase("dbs/" + DATABASE_ID, null);
-        } catch (Exception e) {
-            System.out.println(e.getMessage());
+            ResourceResponse<Document> document = client.createDocument("/dbs/" + DATABASE_NAME + "/colls/" + COLLECTION_NAME, personDocument, new RequestOptions(), true);
+            System.out.println(document.getResource().getResourceId());
+        } catch (DocumentClientException e) {
+            e.printStackTrace();
         }
 
-        // Define a new database using the id above.
-        Database myDatabase = new Database();
-        myDatabase.setId(DATABASE_ID);
+        // Update a property
+        person.setAge(24);
+        try {
+            client.replaceDocument("/dbs/" + DATABASE_ID + "/colls/" + COLLECTION_ID + "/docs/" + "liEGANCA0rQBAAAAAAAAAA==",person,null);
+        } catch (DocumentClientException e) {
+            e.printStackTrace();
+        }
 
-        // Create a new database.
-        myDatabase = documentClient.createDatabase(myDatabase, null)
-                .getResource();
-
-
-        System.out.println("Created a new database:");
-        System.out.println(myDatabase.toString());
-        System.out.println("Press any key to continue..");
-        System.in.read();
-
-        // Define a new collection using the id above.
-        DocumentCollection myCollection = new DocumentCollection();
-        myCollection.setId(COLLECTION_ID);
-
-        // Set the provisioned throughput for this collection to be 1000 RUs.
-        RequestOptions requestOptions = new RequestOptions();
-        requestOptions.setOfferThroughput(1000);
-
-        // Create a new collection.
-        myCollection = documentClient.createCollection(
-                "dbs/" + DATABASE_ID, myCollection, requestOptions)
-                .getResource();
-
-        System.out.println("Created a new collection:");
-        System.out.println(myCollection.toString());
-        System.out.println("Press any key to continue..");
-        System.in.read();
-
-        // Create an object, serialize it into JSON, and wrap it into a
-        // document.
-        SomePojo allenPojo = new SomePojo("123", "Allen Brewer", "allen [at] contoso.com");
-        String allenJson = gson.toJson(allenPojo);
-        Document allenDocument = new Document(allenJson);
-
-        // Create the 1st document.
-        allenDocument = documentClient.createDocument(
-                "dbs/" + DATABASE_ID + "/colls/" + COLLECTION_ID, allenDocument, null, false)
-                .getResource();
-
-        System.out.println("Created 1st document:");
-        System.out.println(allenDocument.toString());
-        System.out.println("Press any key to continue..");
-        System.in.read();
-
-        // Create another object, serialize it into JSON, and wrap it into a
-        // document.
-        SomePojo lisaPojo = new SomePojo("456", "Lisa Andrews",
-                "lisa [at] contoso.com");
-        String somePojoJson = gson.toJson(lisaPojo);
-        Document lisaDocument = new Document(somePojoJson);
-
-        // Create the 2nd document.
-        lisaDocument = documentClient.createDocument(
-                "dbs/" + DATABASE_ID + "/colls/" + COLLECTION_ID, lisaDocument, null, false)
-                .getResource();
-
-        System.out.println("Created 2nd document:");
-        System.out.println(lisaDocument.toString());
-        System.out.println("Press any key to continue..");
-        System.in.read();
-
-        // Query documents
-        List<Document> results = documentClient
-                .queryDocuments(
-                        "dbs/" + DATABASE_ID + "/colls/" + COLLECTION_ID,
-                        "SELECT * FROM myCollection WHERE myCollection.email = 'allen [at] contoso.com'",
-                        null).getQueryIterable().toList();
-
-        System.out.println("Query document where e-mail address = 'allen [at] contoso.com':");
-        System.out.println(results.toString());
-        System.out.println("Press any key to continue..");
-        System.in.read();
-
-        // Replace Document Allen with Percy
-        allenPojo = gson.fromJson(results.get(0).toString(), SomePojo.class);
-        allenPojo.setName("Percy Bowman");
-        allenPojo.setEmail("Percy Bowman [at] contoso.com");
-
-        allenDocument = documentClient.replaceDocument(
-                allenDocument.getSelfLink(),
-                new Document(gson.toJson(allenPojo)), null)
-                .getResource();
-
-        System.out.println("Replaced Allen's document with Percy's contact information");
-        System.out.println(allenDocument.toString());
-        System.out.println("Press any key to continue..");
-        System.in.read();
-
-        // Delete Percy's Document
-        documentClient.deleteDocument(allenDocument.getSelfLink(), null);
-
-        System.out.println("Deleted Percy's document");
-        System.out.println("Press any key to continue..");
-        System.in.read();
-
-        // Delete Database
-        documentClient.deleteDatabase("dbs/" + DATABASE_ID, null);
-
-        System.out.println("Deleted database");
-        System.out.println("Press any key to continue..");
-        System.in.read();
+        //Query documents:
+//        FeedResponse<Document> queryResults = client.queryDocuments("/dbs/" + DATABASE_NAME + "/colls/" + COLLECTION_NAME,
+//                "SELECT * FROM Person",
+//                null);
+//
+//        System.out.println("Running SQL query...");
+//        for (Document p : queryResults.getQueryIterable()) {
+//            System.out.println(String.format("\tRead %s", p));
+//        }
 
     }
+
 }
