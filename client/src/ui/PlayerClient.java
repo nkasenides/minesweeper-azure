@@ -242,7 +242,7 @@ public class PlayerClient implements Runnable {
 
                         //Also register on Ably channel:
                         try {
-                            ably = new AblyRealtime("ooYf5g.nTRfDw:6bmzECLuh5BdDIaG");
+                            ably = new AblyRealtime("rbXxOw.brAgMA:B8r0N2B-W2qCb3uj");
                             final String channelName = "gameState-" + sessionID;
                             System.out.println(channelName);
                             Channel channel = ably.channels.get(channelName);
@@ -319,7 +319,7 @@ public class PlayerClient implements Runnable {
                     }
 
                     ParameterMap parameterMap = new ParameterMap();
-                    parameterMap.add("gameToken", games.get(0).getGameSpecification().getGameToken());
+                    parameterMap.add("gameToken", games.get(0).getToken());
                     parameterMap.add("playerName", name);
                     parameterMap.add("partialStateWidth", "5");
                     parameterMap.add("partialStateHeight", "5");
@@ -382,7 +382,7 @@ public class PlayerClient implements Runnable {
     public static void main(String[] args) {
 
 
-        final int numOfClients = 3;
+        final int numOfClients = 2;
         final int joinDelay = 500;
 
         clients = new PlayerClient[numOfClients];
@@ -412,4 +412,3 @@ public class PlayerClient implements Runnable {
 
     }
 }
-
