@@ -107,6 +107,8 @@ public class PlayServlet extends HttpServlet {
             return;
         }
 
+        System.out.println(new Gson().toJson(game));
+
         //Parse move:
         Move move;
         try {

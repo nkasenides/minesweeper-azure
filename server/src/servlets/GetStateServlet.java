@@ -17,6 +17,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
+import java.lang.reflect.Field;
 import java.util.*;
 
 public class GetStateServlet extends HttpServlet {
@@ -57,14 +58,23 @@ public class GetStateServlet extends HttpServlet {
         Game game = null;
 
         CosmosUtil.setCollectionID(CosmosUtil.GAME_COLLECTION_ID);
-        QueryIterable<Document> gamesQuery = CosmosUtil.query("SELECT * FROM Game WHERE Game.token='" + session.getGameToken() + "'");
+        QueryIterable<Document> gamesQuery = CosmosUtil.query("SELECT Game.token, Game.gameState, Game.fullBoardState, Game.gameSpecification, Game.id FROM Game WHERE Game.token='" + session.getGameToken() + "'");
         List<Document> gameList = gamesQuery.toList();
         if (gameList.size() < 1) {
             response.getWriter().write(new ErrorResponse("Game not found", "Could not find game with token '" + session.getGameToken() + "'").toJSON());
             return;
         }
 
-        game = new Gson().fromJson(gameList.get(0).toJson(), Game.class);
+
+
+        String gameJSON = gameList.get(0).toJson();
+        System.out.println("RAW");
+        System.out.println(gameJSON);
+//
+        game = new Gson().fromJson(gameJSON, Game.class);
+//
+        System.out.println("CONVERTED");
+        System.out.println(new Gson().toJson(game));
 
         if (game == null) {
             response.getWriter().write(new ErrorResponse("Game not found", "Could not find game with token '" + session.getGameToken() + "'").toJSON());

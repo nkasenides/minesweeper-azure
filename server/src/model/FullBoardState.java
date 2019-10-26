@@ -7,7 +7,7 @@ public class FullBoardState extends BoardState {
     public static final int DEFAULT_WIDTH = 100;
     public static final int DEFAULT_HEIGHT = 100;
 
-    private FullBoardState() throws InvalidCellReferenceException {
+    public FullBoardState() throws InvalidCellReferenceException {
         this(DEFAULT_WIDTH, DEFAULT_HEIGHT);
     }
 

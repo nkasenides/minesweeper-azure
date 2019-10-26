@@ -8,7 +8,6 @@ import java.util.*;
 public class Game {
 
     private String id;
-    private final String type = Game.class.getSimpleName();
     private GameSpecification gameSpecification;
     private FullBoardState fullBoardState;
     private GameState gameState;
@@ -37,10 +36,6 @@ public class Game {
     }
 
     public Game() { }
-
-    public String getType() {
-        return type;
-    }
 
     public GameSpecification getGameSpecification() {
         return gameSpecification;
