@@ -2,8 +2,11 @@ package model;
 
 import com.microsoft.azure.documentdb.Resource;
 
-public class Session extends Resource {
+import java.util.UUID;
 
+public class Session {
+
+    private String id;
     private String sessionID;
     private PartialStatePreference partialStatePreference;
     private String playerName;
@@ -14,6 +17,7 @@ public class Session extends Resource {
     private int points;
 
     public Session(String sessionID, PartialStatePreference partialStatePreference, String playerName, String gameToken, boolean spectator) {
+        this.id = sessionID;
         this.sessionID = sessionID;
         this.partialStatePreference = partialStatePreference;
         this.playerName = playerName;
@@ -25,6 +29,14 @@ public class Session extends Resource {
     }
 
     public Session() { }
+
+    public String getId() {
+        return id;
+    }
+
+    public void setId(String id) {
+        this.id = id;
+    }
 
     public String getSessionID() {
         return sessionID;
@@ -88,6 +100,10 @@ public class Session extends Resource {
 
     public void setPoints(int points) {
         this.points = points;
+    }
+
+    public void changePoints(int points) {
+        this.points += points;
     }
 
 }

@@ -5,8 +5,9 @@ import model.exception.InvalidCellReferenceException;
 
 import java.util.*;
 
-public class Game extends Resource {
+public class Game {
 
+    private String id;
     private final String type = Game.class.getSimpleName();
     private GameSpecification gameSpecification;
     private FullBoardState fullBoardState;
@@ -14,6 +15,7 @@ public class Game extends Resource {
     private String token;
 
     public Game(GameSpecification gameSpecification, String token) {
+        this.id = token;
         this.gameSpecification = gameSpecification;
         this.token = token;
         this.gameState = GameState.NOT_STARTED;
@@ -24,6 +26,14 @@ public class Game extends Resource {
         } catch (InvalidCellReferenceException e) {
             e.printStackTrace();
         }
+    }
+
+    public String getId() {
+        return id;
+    }
+
+    public void setId(String id) {
+        this.id = id;
     }
 
     public Game() { }

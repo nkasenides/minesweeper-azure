@@ -119,7 +119,7 @@ public class CreateGameServlet extends HttpServlet {
         try {
             APIUtils.initCosmosDB();
             CosmosUtil.setCollectionName(CosmosUtil.GAME_COLLECTION_NAME);
-            CosmosUtil.createDocument(game, false);
+            CosmosUtil.createDocument(game, true);
             response.getWriter().write(new GameCreatedResponse(game.getToken()).toJSON());
         } catch (Exception e) {
             response.setStatus(500);

@@ -52,7 +52,7 @@ public class CosmosUtil {
      * @return Returns a String containing the ID of the object created.
      * @throws DocumentClientException
      */
-    public static String createDocument(Resource object, boolean autoIDGeneration) throws DocumentClientException {
+    public static String createDocument(Object object, boolean autoIDGeneration) throws DocumentClientException {
         ResourceResponse response = client.createDocument("/dbs/" + DATABASE_NAME + "/colls/" + COLLECTION_NAME, object, new RequestOptions(), autoIDGeneration);
         return response.getResource().getResourceId();
     }
@@ -63,9 +63,9 @@ public class CosmosUtil {
      * @return Returns a String containing the ID of the document.
      * @throws DocumentClientException
      */
-    public static String updateDocument(Resource object) throws DocumentClientException {
-        ResourceResponse response = client.replaceDocument("/dbs/" + DATABASE_ID + "/colls/" + COLLECTION_ID + "/docs/" + object.getResourceId(), object,null);
-        return response.getResource().getResourceId();
+    public static String updateDocument(Object object, String resourceID) throws DocumentClientException {
+        ResourceResponse<Document> documentResourceResponse = client.replaceDocument("/dbs/" + DATABASE_ID + "/colls/" + COLLECTION_ID + "/docs/" + resourceID, object, null);
+        return documentResourceResponse.getResource().getResourceId();
     }
 
     /**

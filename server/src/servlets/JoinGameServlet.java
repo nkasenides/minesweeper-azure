@@ -111,7 +111,7 @@ public class JoinGameServlet extends HttpServlet {
 
         //Check if player is in game already
         CosmosUtil.setCollectionID(CosmosUtil.SESSION_COLLECTION_ID);
-        QueryIterable<Document> sessionPlayerDocuments = CosmosUtil.query("SELECT * FROM Session WHERE Session.playerName='" + playerName + "'");
+        QueryIterable<Document> sessionPlayerDocuments = CosmosUtil.query("SELECT * FROM Session WHERE Session.playerName='" + playerName + "' AND Session.gameToken='"+ gameToken + "'");
         List<Document> playerNameDocumentList = sessionPlayerDocuments.toList();
         if (playerNameDocumentList.size() > 0) {
             response.getWriter().write(new ErrorResponse("Player already in game", "The player with name " + playerName + " is already in this game.").toJSON());
@@ -148,7 +148,7 @@ public class JoinGameServlet extends HttpServlet {
         CosmosUtil.setCollectionID(CosmosUtil.SESSION_COLLECTION_ID);
         CosmosUtil.setCollectionName(CosmosUtil.SESSION_COLLECTION_NAME);
         try {
-            CosmosUtil.createDocument(session, false);
+            CosmosUtil.createDocument(session, true);
             response.getWriter().write(new JoinedGameResponse(gameToken, session.getSessionID()).toJSON());
         }
         catch (Exception e) {
