@@ -7,43 +7,13 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="55de1dae-b6f9-4653-90b2-5438fc2bb3a0" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/../cosmosTest/src/CosmosUtil.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Simple_Logging_Facade_for_Java_1_7_28.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/com_google_code_gson_gson_2_8_6.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/com_microsoft_azure_azure_documentdb_2_4_4.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/org_slf4j_slf4j_api_1_7_26.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/util/CosmosUtil.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../cosmosTest/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../cosmosTest/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../cosmosTest/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../cosmosTest/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../cosmosTest/out/production/CosmosTest/META-INF/CosmosTest.kotlin_module" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/../cosmosTest/out/production/CosmosTest/Main.class" beforeDir="false" afterPath="$PROJECT_DIR$/../cosmosTest/out/production/CosmosTest/Main.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../cosmosTest/src/CosmosUtil.java" beforeDir="false" afterPath="$PROJECT_DIR$/../cosmosTest/src/CosmosUtil.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../cosmosTest/src/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/../cosmosTest/src/Main.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/artifacts/Minesweeper_API_war_exploded.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/artifacts/Minesweeper_API_war_exploded.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/artifacts/api.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/artifacts/api.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/AWS.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/AWS_ThirdParty.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/mysql_connector.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Minesweeper API.iml" beforeDir="false" afterPath="$PROJECT_DIR$/Minesweeper API.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/model/Cell.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/model/Game.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/model/Game.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/model/Session.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/model/Session.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/model/comparators/CellColComparator.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/model/comparators/CellRowComparator.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/model/converters/CellStateConverter.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/model/converters/FullBoardStateConverter.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/model/converters/GameSpecificationConverter.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/model/converters/GameStateConverter.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/model/converters/PartialStatePreferenceConverter.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/servlets/CreateGameServlet.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/servlets/CreateGameServlet.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/servlets/GetStateServlet.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/servlets/GetStateServlet.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/servlets/HelloWorldServlet.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/servlets/HelloWorldServlet.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/servlets/JoinGameServlet.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/servlets/JoinGameServlet.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/servlets/ListGamesServlet.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/servlets/ListGamesServlet.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/util/APIUtils.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/util/APIUtils.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/util/DBConnection.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/util/DynamoUtil.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/util/MinesweeperDB.java" beforeDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -70,28 +40,28 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/servlets/JoinGameServlet.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="348">
-              <caret line="125" column="98" lean-forward="true" selection-start-line="125" selection-start-column="98" selection-end-line="125" selection-end-column="98" />
-              <folding>
-                <element signature="imports" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/util/CosmosUtil.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="255">
+            <state relative-caret-position="-102">
               <caret line="15" column="69" selection-start-line="15" selection-start-column="69" selection-end-line="15" selection-end-column="69" />
               <folding>
                 <element signature="e#2778#2779#0" expanded="true" />
                 <element signature="e#2822#2823#0" expanded="true" />
                 <element signature="e#1382#1383#0" expanded="true" />
                 <element signature="e#1399#1400#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/servlets/GetStateServlet.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="688">
+              <caret line="80" column="9" selection-start-line="80" selection-start-column="9" selection-end-line="80" selection-end-column="9" />
+              <folding>
+                <element signature="imports" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -209,10 +179,10 @@
         <option value="$PROJECT_DIR$/src/servlets/CreateGameServlet.java" />
         <option value="$PROJECT_DIR$/src/servlets/ListGamesServlet.java" />
         <option value="$PROJECT_DIR$/src/util/APIUtils.java" />
-        <option value="$PROJECT_DIR$/src/servlets/GetStateServlet.java" />
         <option value="$PROJECT_DIR$/src/util/CosmosUtil.java" />
         <option value="$PROJECT_DIR$/src/model/Session.java" />
         <option value="$PROJECT_DIR$/src/servlets/JoinGameServlet.java" />
+        <option value="$PROJECT_DIR$/src/servlets/GetStateServlet.java" />
       </list>
     </option>
   </component>
@@ -363,12 +333,12 @@
       <workItem from="1570984900517" duration="8601000" />
       <workItem from="1571036767742" duration="4454000" />
       <workItem from="1571077063981" duration="8956000" />
-      <workItem from="1572076641399" duration="6281000" />
+      <workItem from="1572076641399" duration="6780000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="50791000" />
+    <option name="totallyTimeSpent" value="51290000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
@@ -730,35 +700,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/model/Game.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="68">
-          <caret line="5" column="19" lean-forward="true" selection-start-line="5" selection-start-column="19" selection-end-line="5" selection-end-column="19" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#925#926#0" expanded="true" />
-            <element signature="e#952#953#0" expanded="true" />
-            <element signature="e#1402#1403#0" expanded="true" />
-            <element signature="e#1436#1437#0" expanded="true" />
-            <element signature="e#1555#1556#0" expanded="true" />
-            <element signature="e#1592#1593#0" expanded="true" />
-            <element signature="e#1331#1332#0" expanded="true" />
-            <element signature="e#1383#1384#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/model/StatelessGame.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="238">
-          <caret line="14" column="43" lean-forward="true" selection-start-line="14" selection-start-column="43" selection-end-line="14" selection-end-column="43" />
-          <folding>
-            <element signature="e#598#599#0" expanded="true" />
-            <element signature="e#626#627#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/servlets/CreateGameServlet.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="430">
@@ -779,6 +720,23 @@
         </state>
       </provider>
     </entry>
+    <entry file="jar://C:/Program Files/Java/jdk1.8.0_211/src.zip!/java/lang/String.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="298">
+          <caret line="110" column="19" selection-start-line="110" selection-start-column="19" selection-end-line="110" selection-end-column="19" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/servlets/JoinGameServlet.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="532">
+          <caret line="147" column="69" lean-forward="true" selection-start-line="147" selection-start-column="69" selection-end-line="147" selection-end-column="69" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/util/APIUtils.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="136">
@@ -790,19 +748,38 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/servlets/GetStateServlet.java">
+    <entry file="file://$PROJECT_DIR$/src/model/StatelessGame.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="141">
-          <caret line="87" column="29" selection-start-line="20" selection-end-line="128" selection-end-column="13" />
+        <state relative-caret-position="238">
+          <caret line="14" column="43" lean-forward="true" selection-start-line="14" selection-start-column="43" selection-end-line="14" selection-end-column="43" />
+          <folding>
+            <element signature="e#598#599#0" expanded="true" />
+            <element signature="e#626#627#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/model/Game.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="68">
+          <caret line="5" column="19" lean-forward="true" selection-start-line="5" selection-start-column="19" selection-end-line="5" selection-end-column="19" />
           <folding>
             <element signature="imports" expanded="true" />
+            <element signature="e#925#926#0" expanded="true" />
+            <element signature="e#952#953#0" expanded="true" />
+            <element signature="e#1402#1403#0" expanded="true" />
+            <element signature="e#1436#1437#0" expanded="true" />
+            <element signature="e#1555#1556#0" expanded="true" />
+            <element signature="e#1592#1593#0" expanded="true" />
+            <element signature="e#1331#1332#0" expanded="true" />
+            <element signature="e#1383#1384#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/util/CosmosUtil.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="255">
+        <state relative-caret-position="-102">
           <caret line="15" column="69" selection-start-line="15" selection-start-column="69" selection-end-line="15" selection-end-column="69" />
           <folding>
             <element signature="e#2778#2779#0" expanded="true" />
@@ -810,13 +787,6 @@
             <element signature="e#1382#1383#0" expanded="true" />
             <element signature="e#1399#1400#0" expanded="true" />
           </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://C:/Program Files/Java/jdk1.8.0_211/src.zip!/java/lang/String.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="298">
-          <caret line="110" column="19" selection-start-line="110" selection-start-column="19" selection-end-line="110" selection-end-column="19" />
         </state>
       </provider>
     </entry>
@@ -831,10 +801,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/servlets/JoinGameServlet.java">
+    <entry file="file://$PROJECT_DIR$/src/servlets/GetStateServlet.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="348">
-          <caret line="125" column="98" lean-forward="true" selection-start-line="125" selection-start-column="98" selection-end-line="125" selection-end-column="98" />
+        <state relative-caret-position="688">
+          <caret line="80" column="9" selection-start-line="80" selection-start-column="9" selection-end-line="80" selection-end-column="9" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
