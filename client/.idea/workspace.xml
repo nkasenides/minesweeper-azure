@@ -5,27 +5,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="bbb4a4cc-d632-487a-b279-77010a61c221" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Simulations/2019-09-25@1109-13.csv" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Simulations/2019-09-26@1518-20_Player1.csv" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Simulations/2019-09-26@1518-20_Player2.csv" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Simulations/2019-09-26@1521-09_Player1.csv" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Simulations/2019-09-26@1521-09_Player2.csv" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Simulations/2019-09-26@1523-50_Player1.csv" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Simulations/2019-09-26@1523-50_Player2.csv" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Simulations/2019-09-26@1527-01_Player1.csv" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Simulations/2019-09-26@1527-01_Player2.csv" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Simulations/2019-09-26@1527-01_Player3.csv" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Minesweeper Client/ui/PlayerClient$1GetStateAsyncTask$1PlayAsyncTask.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Minesweeper Client/ui/PlayerClient$1GetStateAsyncTask$1PlayAsyncTask.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Minesweeper Client/ui/PlayerClient$1GetStateAsyncTask.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Minesweeper Client/ui/PlayerClient$1GetStateAsyncTask.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Minesweeper Client/ui/PlayerClient$1JoinGameAsyncTask$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Minesweeper Client/ui/PlayerClient$1JoinGameAsyncTask$1.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Minesweeper Client/ui/PlayerClient$1JoinGameAsyncTask.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Minesweeper Client/ui/PlayerClient$1JoinGameAsyncTask.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Minesweeper Client/ui/PlayerClient$1ListGamesAsyncTask.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Minesweeper Client/ui/PlayerClient$1ListGamesAsyncTask.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Minesweeper Client/ui/PlayerClient$LatencyMeasurement.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Minesweeper Client/ui/PlayerClient$LatencyMeasurement.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Minesweeper Client/ui/PlayerClient.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Minesweeper Client/ui/PlayerClient.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/api/API.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/api/API.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/model/StatelessGame.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/model/StatelessGame.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/ui/PlayerClient.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/ui/PlayerClient.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../cosmosTest/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../cosmosTest/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../cosmosTest/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../cosmosTest/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../cosmosTest/out/production/CosmosTest/META-INF/CosmosTest.kotlin_module" beforeDir="false" />
@@ -141,11 +121,27 @@
           </provider>
         </entry>
       </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/Simulations/2019-10-26@1620-34_Player1.csv">
+          <provider selected="true" editor-type-id="csv-text-editor" />
+          <provider editor-type-id="csv-table-editor">
+            <state showInfoPanel="true" fixedHeaders="false" rowLines="3" />
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/Simulations/2019-10-26@1620-34_Player2.csv">
+          <provider selected="true" editor-type-id="csv-text-editor" />
+          <provider editor-type-id="csv-table-editor">
+            <state showInfoPanel="true" fixedHeaders="false" rowLines="3" />
+          </provider>
+        </entry>
+      </file>
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/api/API.java">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="68">
-              <caret line="4" column="59" selection-start-line="4" selection-start-column="59" selection-end-line="4" selection-end-column="59" />
+              <caret line="4" column="101" selection-start-line="4" selection-start-column="101" selection-end-line="4" selection-end-column="101" />
             </state>
           </provider>
         </entry>
@@ -383,12 +379,12 @@
       <workItem from="1569349594635" duration="8427000" />
       <workItem from="1569439940500" duration="648000" />
       <workItem from="1569499693084" duration="1324000" />
-      <workItem from="1572095767498" duration="262000" />
+      <workItem from="1572095767498" duration="782000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="39954000" />
+    <option name="totallyTimeSpent" value="40474000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -412,13 +408,13 @@
       <window_info id="Favorites" order="6" sideWeight="0.50080776" side_tool="true" weight="0.18763326" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" />
-      <window_info anchor="bottom" id="Run" order="2" visible="true" weight="0.32936078" />
+      <window_info anchor="bottom" id="Run" order="2" weight="0.32936078" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.3997833" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="bottom" id="TODO" order="6" weight="0.32936078" />
       <window_info anchor="bottom" id="Application Servers" order="7" />
-      <window_info anchor="bottom" id="Terminal" order="8" weight="0.32936078" />
+      <window_info anchor="bottom" id="Terminal" order="8" visible="true" weight="0.32936078" />
       <window_info anchor="bottom" id="Docker" order="9" show_stripe_button="false" />
       <window_info anchor="bottom" id="Event Log" order="10" side_tool="true" />
       <window_info anchor="bottom" id="Database Changes" order="11" />
@@ -452,8 +448,6 @@
     </expressions>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/.idea/libraries/RespondX.xml" />
-    <entry file="file://$PROJECT_DIR$/src/main/java/ui/PlayerClient.java" />
     <entry file="file://$PROJECT_DIR$/src/main/java/api/http/SyncHTTP.java" />
     <entry file="file://$PROJECT_DIR$/src/main/java/api/http/HTTPAsyncTask.java" />
     <entry file="file://$PROJECT_DIR$/src/main/java/ui/form/PlayerGameForm.java" />
@@ -764,10 +758,22 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/Simulations/2019-10-26@1620-34_Player1.csv">
+      <provider selected="true" editor-type-id="csv-text-editor" />
+      <provider editor-type-id="csv-table-editor">
+        <state showInfoPanel="true" fixedHeaders="false" rowLines="3" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Simulations/2019-10-26@1620-34_Player2.csv">
+      <provider selected="true" editor-type-id="csv-text-editor" />
+      <provider editor-type-id="csv-table-editor">
+        <state showInfoPanel="true" fixedHeaders="false" rowLines="3" />
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/api/API.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="68">
-          <caret line="4" column="59" selection-start-line="4" selection-start-column="59" selection-end-line="4" selection-end-column="59" />
+          <caret line="4" column="101" selection-start-line="4" selection-start-column="101" selection-end-line="4" selection-end-column="101" />
         </state>
       </provider>
     </entry>
