@@ -1,18 +1,15 @@
 package model;
 
-import com.amazonaws.services.dynamodbv2.datamodeling.*;
-import model.converters.FullBoardStateConverter;
-import model.converters.GameSpecificationConverter;
-import model.converters.GameStateConverter;
+import com.microsoft.azure.documentdb.Resource;
 import model.exception.InvalidCellReferenceException;
 
 import java.util.*;
 
-@DynamoDBTable(tableName = "Game")
-public class Game {
+public class Game extends Resource {
 
+    private final String type = Game.class.getSimpleName();
     private GameSpecification gameSpecification;
-    @DynamoDBIgnore private FullBoardState fullBoardState;
+    private FullBoardState fullBoardState;
     private GameState gameState;
     private String token;
 
@@ -31,13 +28,14 @@ public class Game {
 
     public Game() { }
 
-    @DynamoDBTypeConverted(converter = GameSpecificationConverter.class)
-    @DynamoDBAttribute(attributeName = "gameSpecification")
+    public String getType() {
+        return type;
+    }
+
     public GameSpecification getGameSpecification() {
         return gameSpecification;
     }
 
-    @DynamoDBHashKey(attributeName = "gameToken")
     public String getToken() {
         return token;
     }
@@ -46,17 +44,14 @@ public class Game {
         this.token = token;
     }
 
-    @DynamoDBTypeConverted(converter = FullBoardStateConverter.class)
     public FullBoardState getFullBoardState() {
         return fullBoardState;
     }
 
-    @DynamoDBIgnore
     public void setFullBoardState(FullBoardState fullBoardState) {
         this.fullBoardState = fullBoardState;
     }
 
-    @DynamoDBIgnore
     private void initializeMatrix() {
         for (int row = 0; row < fullBoardState.getCells().length; row++) {
             for (int col = 0; col < fullBoardState.getCells()[row].length; col++) {
@@ -65,7 +60,6 @@ public class Game {
         }
     }
 
-    @DynamoDBIgnore
     private void generateMines() {
         Random random = new Random();
         final int numberOfMines = Math.round(gameSpecification.getWidth() * gameSpecification.getHeight() * gameSpecification.getDifficulty().getMineRatio());
@@ -80,8 +74,6 @@ public class Game {
         } while (generatedMines < numberOfMines);
     }
 
-    @DynamoDBTypeConverted(converter = GameStateConverter.class)
-    @DynamoDBAttribute(attributeName = "gameState")
     public GameState getGameState() {
         return gameState;
     }
@@ -90,7 +82,6 @@ public class Game {
         this.gameState = gameState;
     }
 
-    @DynamoDBIgnore
     public boolean start() {
         if (gameState != GameState.STARTED) {
             this.gameState = GameState.STARTED;
@@ -99,12 +90,10 @@ public class Game {
         return false;
     }
 
-    @DynamoDBIgnore
     public void setGameSpecification(GameSpecification gameSpecification) {
         this.gameSpecification = gameSpecification;
     }
 
-    @DynamoDBIgnore
     private int countFlaggedMines() {
         int count = 0;
         for (int row = 0; row < fullBoardState.getHeight(); row++) {
@@ -117,7 +106,6 @@ public class Game {
         return count;
     }
 
-    @DynamoDBIgnore
     private int countMines() {
         int count = 0;
         for (int row = 0; row < fullBoardState.getHeight(); row++) {
@@ -130,7 +118,6 @@ public class Game {
         return count;
     }
 
-    @DynamoDBIgnore
     public void computeGameState() {
 
         if (gameState == GameState.STARTED) {
@@ -170,7 +157,6 @@ public class Game {
         }
     }
 
-    @DynamoDBIgnore
     public void revealAll() {
         FullBoardState state = getFullBoardState();
         for (int row = 0; row < state.getHeight(); row++) {
@@ -186,7 +172,6 @@ public class Game {
         }
     }
 
-    @DynamoDBIgnore
     public RevealState reveal(int row, int col) {
         CellState referencedCell = fullBoardState.getCells()[row][col];
         if (referencedCell.getRevealState() == RevealState.COVERED) {
@@ -266,7 +251,6 @@ public class Game {
         return referencedCell.getRevealState();
     }
 
-    @DynamoDBIgnore
     public void flag(int row, int col) {
         CellState referencedCell = fullBoardState.getCells()[row][col];
         if (fullBoardState.getCells()[row][col].getRevealState() == RevealState.COVERED) {

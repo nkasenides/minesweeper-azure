@@ -1,6 +1,5 @@
 package servlets;
 
-import com.amazonaws.services.dynamodbv2.datamodeling.DynamoDBMapper;
 import com.panickapps.response.ErrorResponse;
 import model.*;
 import model.response.GameCreatedResponse;
@@ -8,7 +7,7 @@ import model.response.InvalidParameterResponse;
 import model.response.MissingParameterResponse;
 import util.APIUtils;
 import util.AuthUtils;
-import util.DynamoUtil;
+import util.CosmosUtil;
 
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
@@ -118,19 +117,10 @@ public class CreateGameServlet extends HttpServlet {
         game.setGameState(GameState.STARTED);
 
         try {
-
-            ArrayList<Cell> cells = new ArrayList<>();
-            for (int row = 0; row < game.getFullBoardState().getHeight(); row++) {
-                for (int col = 0; col < game.getFullBoardState().getWidth(); col++) {
-                    cells.add(new Cell(game.getFullBoardState().getCells()[row][col], row, col, game.getToken()));
-                }
-            }
-
-            DynamoDBMapper mapper = DynamoUtil.getMapper();
-            mapper.batchSave(cells);
-            mapper.save(game);
+            APIUtils.initCosmosDB();
+            CosmosUtil.setCollectionName(CosmosUtil.GAME_COLLECTION_NAME);
+            CosmosUtil.createDocument(game, false);
             response.getWriter().write(new GameCreatedResponse(game.getToken()).toJSON());
-            return;
         } catch (Exception e) {
             response.setStatus(500);
             response.getWriter().write(new ErrorResponse("Game not created", "Failed to create a game. " + e.getMessage()).toJSON());

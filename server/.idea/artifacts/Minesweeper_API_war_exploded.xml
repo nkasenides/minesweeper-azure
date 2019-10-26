@@ -8,11 +8,12 @@
           <element id="module-output" name="Minesweeper API" />
         </element>
         <element id="directory" name="lib">
-          <element id="library" level="project" name="mysql-connector" />
           <element id="library" level="project" name="Response" />
           <element id="library" level="project" name="Ably" />
-          <element id="library" level="project" name="AWS-ThirdParty" />
-          <element id="library" level="project" name="AWS" />
+          <element id="library" level="project" name="Simple Logging Facade for Java:1.7.28" />
+          <element id="library" level="project" name="org.slf4j:slf4j-api:1.7.26" />
+          <element id="library" level="project" name="com.google.code.gson:gson:2.8.6" />
+          <element id="library" level="project" name="com.microsoft.azure:azure-documentdb:2.4.4" />
         </element>
       </element>
     </root>

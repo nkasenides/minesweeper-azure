@@ -1,10 +1,8 @@
 package model;
 
-import com.amazonaws.services.dynamodbv2.datamodeling.*;
-import model.converters.PartialStatePreferenceConverter;
+import com.microsoft.azure.documentdb.Resource;
 
-@DynamoDBTable(tableName = "Session")
-public class Session {
+public class Session extends Resource {
 
     private String sessionID;
     private PartialStatePreference partialStatePreference;
@@ -28,7 +26,6 @@ public class Session {
 
     public Session() { }
 
-    @DynamoDBHashKey(attributeName = "sessionID")
     public String getSessionID() {
         return sessionID;
     }
@@ -37,8 +34,6 @@ public class Session {
         this.sessionID = sessionID;
     }
 
-    @DynamoDBAttribute(attributeName = "partialStatePreference")
-    @DynamoDBTypeConverted(converter = PartialStatePreferenceConverter.class)
     public PartialStatePreference getPartialStatePreference() {
         return partialStatePreference;
     }
@@ -47,7 +42,6 @@ public class Session {
         this.partialStatePreference = partialStatePreference;
     }
 
-    @DynamoDBAttribute(attributeName = "playerName")
     public String getPlayerName() {
         return playerName;
     }
@@ -56,7 +50,6 @@ public class Session {
         this.playerName = playerName;
     }
 
-    @DynamoDBAttribute(attributeName = "gameToken")
     public String getGameToken() {
         return gameToken;
     }
@@ -65,7 +58,6 @@ public class Session {
         this.gameToken = gameToken;
     }
 
-    @DynamoDBAttribute(attributeName = "col")
     public int getPositionCol() {
         return positionCol;
     }
@@ -74,7 +66,6 @@ public class Session {
         this.positionCol = positionCol;
     }
 
-    @DynamoDBAttribute(attributeName = "row")
     public int getPositionRow() {
         return positionRow;
     }
@@ -83,7 +74,6 @@ public class Session {
         this.positionRow = positionRow;
     }
 
-    @DynamoDBAttribute(attributeName = "isSpectator")
     public boolean isSpectator() {
         return spectator;
     }
@@ -92,7 +82,6 @@ public class Session {
         this.spectator = spectator;
     }
 
-    @DynamoDBAttribute(attributeName = "points")
     public int getPoints() {
         return points;
     }
@@ -100,4 +89,5 @@ public class Session {
     public void setPoints(int points) {
         this.points = points;
     }
+
 }

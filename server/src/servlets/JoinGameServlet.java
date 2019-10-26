@@ -1,8 +1,8 @@
 package servlets;
 
-import com.amazonaws.services.dynamodbv2.datamodeling.DynamoDBMapper;
-import com.amazonaws.services.dynamodbv2.datamodeling.DynamoDBScanExpression;
-import com.amazonaws.services.dynamodbv2.model.AttributeValue;
+import com.google.gson.Gson;
+import com.microsoft.azure.documentdb.Document;
+import com.microsoft.azure.documentdb.QueryIterable;
 import com.panickapps.response.ErrorResponse;
 import model.Game;
 import model.PartialStatePreference;
@@ -10,9 +10,8 @@ import model.Session;
 import model.response.InvalidParameterResponse;
 import model.response.JoinedGameResponse;
 import model.response.MissingParameterResponse;
-import model.response.UnknownFailureResponse;
 import util.APIUtils;
-import util.DynamoUtil;
+import util.CosmosUtil;
 import util.InputValidator;
 
 import javax.servlet.ServletException;
@@ -20,7 +19,6 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
-import java.sql.SQLException;
 import java.util.HashMap;
 import java.util.List;
 import java.util.UUID;
@@ -83,27 +81,17 @@ public class JoinGameServlet extends HttpServlet {
             return;
         }
 
-        DynamoDBMapper mapper = DynamoUtil.getMapper();
-
-        //Get the referenced game
-        HashMap<String, AttributeValue> eav = new HashMap<>();
-        eav.put(":v1", new AttributeValue().withS(gameToken));
-
-        DynamoDBScanExpression gameScanExpression = new DynamoDBScanExpression()
-                .withFilterExpression("begins_with(gameToken,:v1)")
-                .withExpressionAttributeValues(eav);
-
-        final List<Game> games =  mapper.scan(Game.class, gameScanExpression);
-
         Game game;
-
-        try {
-            game = games.get(0);
-        }
-        catch (IndexOutOfBoundsException e) {
+        CosmosUtil.init();
+        CosmosUtil.setCollectionID(CosmosUtil.GAME_COLLECTION_ID);
+        QueryIterable<Document> gameDocuments = CosmosUtil.query("SELECT * FROM Game WHERE Game.token='" + gameToken + "'");
+        List<Document> games = gameDocuments.toList();
+        if (games.size() < 1) {
             response.getWriter().write(new ErrorResponse("Game not found", "Could not find game with token '" + gameToken + "'").toJSON());
             return;
         }
+
+        game = new Gson().fromJson(games.get(0).toJson(), Game.class);
 
         if (game == null) {
             response.getWriter().write(new ErrorResponse("Game not found", "Could not find game with token '" + gameToken + "'").toJSON());
@@ -122,29 +110,24 @@ public class JoinGameServlet extends HttpServlet {
         }
 
         //Check if player is in game already
-        eav = new HashMap<>();
-        eav.put(":v1", new AttributeValue().withS(gameToken));
-
-        DynamoDBScanExpression nameScanExpression = new DynamoDBScanExpression()
-                .withFilterExpression("begins_with(gameToken,:v1)")
-                .withExpressionAttributeValues(eav);
-
-        final List<Session> sessionsOfTheGame =  mapper.scan(Session.class, nameScanExpression);
-        int playersWithNameInGame = 0;
-        for (Session s : sessionsOfTheGame) {
-            if (s.getPlayerName().equals(playerName)) {
-                playersWithNameInGame++;
-            }
-        }
-
-        if (playersWithNameInGame > 0) {
+        CosmosUtil.setCollectionID(CosmosUtil.SESSION_COLLECTION_ID);
+        QueryIterable<Document> sessionPlayerDocuments = CosmosUtil.query("SELECT * FROM Session WHERE Session.playerName='" + playerName + "'");
+        List<Document> playerNameDocumentList = sessionPlayerDocuments.toList();
+        if (playerNameDocumentList.size() > 0) {
             response.getWriter().write(new ErrorResponse("Player already in game", "The player with name " + playerName + " is already in this game.").toJSON());
             return;
         }
 
         //Check max player limit:
-        if (sessionsOfTheGame.size() >= game.getGameSpecification().getMaxPlayers()) {
-            response.getWriter().write(new ErrorResponse("Game full", "Game with token '" + gameToken + "' is already full (" + sessionsOfTheGame.size() + "/" + game.getGameSpecification().getMaxPlayers() + ").").toJSON());
+        QueryIterable<Document> maxPlayersDocuments = CosmosUtil.query("SELECT * FROM Session WHERE Session.gameToken='" + gameToken + "'");
+        List<Document> maxPlayersList = maxPlayersDocuments.toList();
+
+        CosmosUtil.setCollectionID(CosmosUtil.GAME_COLLECTION_ID);
+        QueryIterable<Document> gameTokenSelectionDocuments = CosmosUtil.query("SELECT * FROM Game WHERE Game.token='" + gameToken + "'");
+        List<Document> gameTokenSelectionList = gameTokenSelectionDocuments.toList();
+        Game currentGame = new Gson().fromJson(gameTokenSelectionList.get(0).toJson(), Game.class);
+        if (maxPlayersList.size() >= currentGame.getGameSpecification().getMaxPlayers()) {
+            response.getWriter().write(new ErrorResponse("Game full", "Game with token '" + gameToken + "' is already full (" + maxPlayersList.size() + "/" + game.getGameSpecification().getMaxPlayers() + ").").toJSON());
             return;
         }
 
@@ -162,8 +145,16 @@ public class JoinGameServlet extends HttpServlet {
         final String sessionID = UUID.randomUUID().toString();
         final Session session = new Session(sessionID, new PartialStatePreference(partialStateWidth, partialStateHeight), playerName, gameToken, false);
 
-        mapper.save(session);
-        response.getWriter().write(new JoinedGameResponse(gameToken, session.getSessionID()).toJSON());
+        CosmosUtil.setCollectionID(CosmosUtil.SESSION_COLLECTION_ID);
+        CosmosUtil.setCollectionName(CosmosUtil.SESSION_COLLECTION_NAME);
+        try {
+            CosmosUtil.createDocument(session, false);
+            response.getWriter().write(new JoinedGameResponse(gameToken, session.getSessionID()).toJSON());
+        }
+        catch (Exception e) {
+            response.getWriter().write(new ErrorResponse("Could not join game", "Could not join game. " + e.getMessage()).toJSON());
+        }
+
 
     }
 
