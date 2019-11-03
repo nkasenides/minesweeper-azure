@@ -2,7 +2,7 @@ import com.microsoft.azure.documentdb.Resource;
 
 import java.util.UUID;
 
-public class Person extends Resource {
+public class Person {
 
     private String id;
     private String name;
