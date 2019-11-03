@@ -6,15 +6,15 @@ public class CosmosUtil {
 
     private static DocumentClient client;
     public static final String DATABASE_NAME = "MinesweeperDB";
-    public static final String DATABASE_ID = "iBgJAA==";
+    public static final String DATABASE_ID = "FFAkAA==";
 
     private static String COLLECTION_NAME;
     private static String COLLECTION_ID;
 
     public static final String GAME_COLLECTION_NAME = "GameCollection";
-    public static final String GAME_COLLECTION_ID = "iBgJAPwXMjU=";
+    public static final String GAME_COLLECTION_ID = "FFAkALEy29k=";
     public static final String SESSION_COLLECTION_NAME = "SessionCollection";
-    public static final String SESSION_COLLECTION_ID = "iBgJAMmHtT0=";
+    public static final String SESSION_COLLECTION_ID = "FFAkAIf9BkA=";
 
     /**
      * Initializes the DocumentClient and returns it.
@@ -24,8 +24,8 @@ public class CosmosUtil {
         if (client != null) return client;
         else {
             client = new DocumentClient(
-                    "https://minesweeper.documents.azure.com:443/",
-                    "zosyn2c8p8QVPsrpRce9xsoNbAmjBD4fh3fqSexCn1Yg8HXrnaImrOJLozaSUqqCaP9t3WbxcVDMM3RuJD7qHA==",
+                    "https://minesweeperdb.documents.azure.com:443/",
+                    "DxmJ7fkC4QTS7XdxuH2j5WchGoRnIDo1XwQb2f5xM7XfJ6dTec0MQL2CnqXWFHul96MoXkaWt0lXCj6tOZn7EQ==",
                     new ConnectionPolicy(),
                     ConsistencyLevel.Session
             );
