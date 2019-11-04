@@ -202,7 +202,7 @@ public class PlayServlet extends HttpServlet {
                 }
 
                 //Respond:
-                publishStateToAllPlayers(game);
+                publishStateToAllPlayers(game, row, col);
                 response.getWriter().write(new PlayResponse(move, row, col, game.getGameState(), session.getPoints()).toJSON());
                 return;
 
@@ -228,7 +228,7 @@ public class PlayServlet extends HttpServlet {
                     return;
                 }
 
-                publishStateToAllPlayers(game);
+                publishStateToAllPlayers(game, row, col);
                 response.getWriter().write(new PlayResponse(move, row, col, game.getGameState(), session.getPoints()).toJSON());
                 return;
 
@@ -265,22 +265,22 @@ public class PlayServlet extends HttpServlet {
 
     }
 
-    //    This currently sends the new state to ALL players once any place in the board has been changes. Ideally, we would want
-//    only those who have partial states intersecting with the changed cell to be updated.
-    private void publishStateToAllPlayers(final Game game) {
+    private void publishStateToAllPlayers(final Game game, final int changedRow, final int changedCol) {
         CosmosUtil.setCollectionID(CosmosUtil.SESSION_COLLECTION_ID);
-        QueryIterable<Document> querySessions = CosmosUtil.query("SELECT * FROM Session");
+        QueryIterable<Document> querySessions = CosmosUtil.query("SELECT * FROM Session WHERE Session.gameToken='" + game.getToken() + "'");
         List<Document> sessionDocuments = querySessions.toList();
         final List<Session> allSessions = new ArrayList<>();
         for (Document d : sessionDocuments) {
             Session s = new Gson().fromJson(d.toJson(), Session.class);
-            allSessions.add(s);
+            //Publish state only to the players who have an AoI including the changed cell:
+            if (changedRow >= 0 && changedRow <= s.getPositionRow() && changedCol >= 0 && changedCol <= s.getPositionCol()) {
+                allSessions.add(s);
+            }
         }
 
         for (final Session session : allSessions) {
             publishStateToPlayer(game, session);
         }
-
     }
 
     //Publishes the state of the game to the player with the given session ID
