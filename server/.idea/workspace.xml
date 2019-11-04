@@ -7,14 +7,6 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="55de1dae-b6f9-4653-90b2-5438fc2bb3a0" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/../client/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../client/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../client/Simulations/2019-10-26@1620-34_Player1.csv" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../client/Simulations/2019-10-26@1620-34_Player2.csv" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../client/out/production/Minesweeper Client/api/API.class" beforeDir="false" afterPath="$PROJECT_DIR$/../client/out/production/Minesweeper Client/api/API.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../client/out/production/Minesweeper Client/ui/PlayerClient$1GetStateAsyncTask$1PlayAsyncTask.class" beforeDir="false" afterPath="$PROJECT_DIR$/../client/out/production/Minesweeper Client/ui/PlayerClient$1GetStateAsyncTask$1PlayAsyncTask.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../client/out/production/Minesweeper Client/ui/PlayerClient$1GetStateAsyncTask.class" beforeDir="false" afterPath="$PROJECT_DIR$/../client/out/production/Minesweeper Client/ui/PlayerClient$1GetStateAsyncTask.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../client/out/production/Minesweeper Client/ui/PlayerClient$1JoinGameAsyncTask.class" beforeDir="false" afterPath="$PROJECT_DIR$/../client/out/production/Minesweeper Client/ui/PlayerClient$1JoinGameAsyncTask.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../client/out/production/Minesweeper Client/ui/PlayerClient$1ListGamesAsyncTask.class" beforeDir="false" afterPath="$PROJECT_DIR$/../client/out/production/Minesweeper Client/ui/PlayerClient$1ListGamesAsyncTask.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../cosmosTest/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../cosmosTest/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../cosmosTest/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../cosmosTest/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../cosmosTest/out/production/CosmosTest/META-INF/CosmosTest.kotlin_module" beforeDir="false" />
@@ -24,7 +16,6 @@
       <change beforePath="$PROJECT_DIR$/../cosmosTest/src/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/../cosmosTest/src/Main.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../cosmosTest/src/Person.java" beforeDir="false" afterPath="$PROJECT_DIR$/../cosmosTest/src/Person.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/util/CosmosUtil.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/util/CosmosUtil.java" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -68,8 +59,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/util/CosmosUtil.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="136">
-              <caret line="8" column="54" selection-start-line="8" selection-start-column="54" selection-end-line="8" selection-end-column="54" />
+            <state relative-caret-position="357">
+              <caret line="21" column="7" lean-forward="true" selection-start-line="21" selection-start-column="7" selection-end-line="21" selection-end-column="7" />
               <folding>
                 <element signature="e#1338#1339#0" expanded="true" />
                 <element signature="e#1382#1383#0" expanded="true" />
@@ -364,18 +355,17 @@
       <workItem from="1571077063981" duration="8956000" />
       <workItem from="1572076641399" duration="18574000" />
       <workItem from="1572164874993" duration="3000" />
-      <workItem from="1572770382705" duration="629000" />
+      <workItem from="1572770382705" duration="1273000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="63716000" />
+    <option name="totallyTimeSpent" value="64360000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
-    <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" sideWeight="0.49757674" visible="true" weight="0.16791044" />
+      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.49757674" visible="true" weight="0.16791044" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Designer" order="2" />
       <window_info id="Image Layers" order="3" />
@@ -391,7 +381,7 @@
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="bottom" id="TODO" order="6" />
       <window_info anchor="bottom" id="Application Servers" order="7" weight="0.32936078" />
-      <window_info anchor="bottom" id="Terminal" order="8" visible="true" weight="0.32936078" />
+      <window_info active="true" anchor="bottom" id="Terminal" order="8" visible="true" weight="0.32936078" />
       <window_info anchor="bottom" id="Docker" order="9" show_stripe_button="false" />
       <window_info anchor="bottom" id="Event Log" order="10" side_tool="true" weight="0.32936078" />
       <window_info anchor="bottom" id="Java Enterprise" order="11" weight="0.32936078" />
@@ -733,8 +723,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/util/CosmosUtil.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="136">
-          <caret line="8" column="54" selection-start-line="8" selection-start-column="54" selection-end-line="8" selection-end-column="54" />
+        <state relative-caret-position="357">
+          <caret line="21" column="7" lean-forward="true" selection-start-line="21" selection-start-column="7" selection-end-line="21" selection-end-column="7" />
           <folding>
             <element signature="e#1338#1339#0" expanded="true" />
             <element signature="e#1382#1383#0" expanded="true" />

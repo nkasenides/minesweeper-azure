@@ -269,7 +269,7 @@ public class PlayServlet extends HttpServlet {
 //    only those who have partial states intersecting with the changed cell to be updated.
     private void publishStateToAllPlayers(final Game game) {
         CosmosUtil.setCollectionID(CosmosUtil.SESSION_COLLECTION_ID);
-        QueryIterable<Document> querySessions = CosmosUtil.query("SELECT * FROM Session");
+        QueryIterable<Document> querySessions = CosmosUtil.query("SELECT * FROM Session WHERE Session.gameToken='" + game.getToken() + "'");
         List<Document> sessionDocuments = querySessions.toList();
         final List<Session> allSessions = new ArrayList<>();
         for (Document d : sessionDocuments) {
