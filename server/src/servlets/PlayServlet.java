@@ -271,10 +271,13 @@ public class PlayServlet extends HttpServlet {
         List<Document> sessionDocuments = querySessions.toList();
         final List<Session> allSessions = new ArrayList<>();
         for (Document d : sessionDocuments) {
-            Session s = new Gson().fromJson(d.toJson(), Session.class);
+            Session session = new Gson().fromJson(d.toJson(), Session.class);
             //Publish state only to the players who have an AoI including the changed cell:
-            if (changedRow >= 0 && changedRow <= s.getPositionRow() && changedCol >= 0 && changedCol <= s.getPositionCol()) {
-                allSessions.add(s);
+            if (
+                    changedRow >= session.getPositionRow() && changedRow < session.getPositionRow() + session.getPartialStatePreference().getHeight() &&
+                            changedCol >= session.getPositionCol() && changedCol < session.getPositionCol() + session.getPartialStatePreference().getWidth()
+            ) {
+                allSessions.add(session);
             }
         }
 
